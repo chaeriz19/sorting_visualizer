@@ -1,22 +1,51 @@
+export default function mergeSort(array, animations) {
+    if (array.length <= 1) {
+      return array;
+    }
+    const middle = Math.floor(array.length / 2);
+    const left = array.slice(0, middle);
+    const right = array.slice(middle);
+    const sortedLeft = mergeSort(left, animations);
+    const sortedRight = mergeSort(right, animations);
+    const mergedArray = merge(sortedLeft, sortedRight, animations);
+    
+    return mergedArray;
+}
 
+    function merge(left, right, animations) {
+    const mergedArray = [];
+    let i = 0;
+    let j = 0;
 
-export default function mergeSort(array) {
-    if (array.length <= 1) {return array;}
-    let middle = Math.floor(array.length / 2);
-    let left = array.slice(0, middle);
-    let right = array.slice(middle);
+    while (i < left.length && j < right.length) {
+        const animation = [];
 
-    function merge(left, right) {
-        const array = [];
-        while (left.length && right.length) {
-            if (left[0] < right[0]) {
-                array.push(left.shift());
-            } else {
-                array.push(right.shift());
-            }
-        }
-        return array.concat(left.slice()).concat(right.slice());
+    if (left[i] <= right[j]) {
+        animation.push(i, j);
+        mergedArray.push(left[i]);
+        i++;
+    } else {
+        animation.push(i, j);
+        mergedArray.push(right[j]);
+        j++;
     }
 
-    return merge(mergeSort(left), mergeSort(right));
+    animations.push(animation);
+    }
+
+    while (i < left.length) {
+        const animation = [i, i];
+        mergedArray.push(left[i]);
+        animations.push(animation);
+        i++;
+    }
+
+    while (j < right.length) {
+        const animation = [i + j, j];
+        mergedArray.push(right[j]);
+        animations.push(animation);
+        j++;
+    }
+
+    return mergedArray;
 }

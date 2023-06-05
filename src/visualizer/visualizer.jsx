@@ -21,9 +21,25 @@ export default class Visualizer extends React.Component {
         a.push(Math.floor(Math.random(5)*500 +5));
         }
         this.setState( {array: a });
+        console.log(this.state.array);
     }
     sort() {
-        mergeSort(this.state.array);
+        const {array} = this.state;
+        const animations = [];
+        const sorted = mergeSort(this.state.array, animations);
+
+        // visualise 
+
+        for (let i = 0; i < animations.length; i++) {
+            const [idx1, idx2] = animations[i];
+            setTimeout(() => {
+            this.setState((prevState) => {
+                const updatedArray = [...prevState.array];
+                updatedArray[idx1] = sorted[idx2];
+                return { array: updatedArray };
+            });
+            }, i * 10);
+        }
     }
     render() {
         const { array } = this.state;

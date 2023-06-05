@@ -46,3 +46,6 @@ button:hover {
     background: #2e6ed6;
     color: black;
 }
+.sorting {
+    background-color: red; /* Apply your desired color here */
+  }
