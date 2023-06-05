@@ -1,0 +1,49 @@
+body {
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.control {
+    width: 100%;
+    height: 50px;
+    padding: 20px;
+}
+.display {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    text-align: center;
+    margin: 0 auto;
+    padding: 5rem;
+    overflow: hidden;
+}
+.obj {
+    color: black;
+    font-size: 8px;
+    background-color: lightblue;
+    width: 25px;
+    margin: 0 2px;
+}
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button {
+    padding: 10px;
+    border: none;
+    margin: 2px 2px;
+    width: 100px;
+    background-color: green;
+    color: white;
+    background: #4C8FFB;
+    border: 1px #3079ED solid;
+    box-shadow: inset 0 1px 0 #80B0FB;
+}
+button:hover {
+    background: #2e6ed6;
+    color: black;
+}
