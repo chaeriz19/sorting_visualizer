@@ -8,44 +8,44 @@ export default function mergeSort(array, animations) {
     const sortedLeft = mergeSort(left, animations);
     const sortedRight = mergeSort(right, animations);
     const mergedArray = merge(sortedLeft, sortedRight, animations);
-    
+  
     return mergedArray;
-}
-
-    function merge(left, right, animations) {
+  }
+  
+  function merge(left, right, animations) {
     const mergedArray = [];
     let i = 0;
     let j = 0;
-
+  
     while (i < left.length && j < right.length) {
-        const animation = [];
-
-    if (left[i] <= right[j]) {
-        animation.push(i, j);
+      const animation = [];
+  
+      if (left[i] <= right[j]) {
+        animation.push(i, j, left[i]);
         mergedArray.push(left[i]);
         i++;
-    } else {
-        animation.push(i, j);
+      } else {
+        animation.push(i, j, right[j]);
         mergedArray.push(right[j]);
         j++;
+      }
+  
+      animations.push(animation);
     }
-
-    animations.push(animation);
-    }
-
+  
     while (i < left.length) {
-        const animation = [i, i];
-        mergedArray.push(left[i]);
-        animations.push(animation);
-        i++;
+      const animation = [i, j, left[i]];
+      mergedArray.push(left[i]);
+      animations.push(animation);
+      i++;
     }
-
+  
     while (j < right.length) {
-        const animation = [i + j, j];
-        mergedArray.push(right[j]);
-        animations.push(animation);
-        j++;
+      const animation = [i, j, right[j]];
+      mergedArray.push(right[j]);
+      animations.push(animation);
+      j++;
     }
-
+  
     return mergedArray;
-}
+  }
