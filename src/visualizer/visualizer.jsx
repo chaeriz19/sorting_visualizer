@@ -36,7 +36,8 @@ export default class Visualizer extends React.Component {
               updatedArray[idx1] = value;
               return { array: updatedArray };
             });
-          }, i * 10);
+            
+          }, 1000);
         }
       }
     render() {
