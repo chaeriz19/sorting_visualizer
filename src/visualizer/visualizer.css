@@ -1,5 +1,6 @@
 body {
     overflow: hidden;
+    background-color: lightblue;
 }
 
 .container {
@@ -21,9 +22,9 @@ body {
     overflow: hidden;
 }
 .obj {
-    color: black;
-    font-size: 8px;
-    background-color: gray;
+    color: white;
+    font-size: 3px;
+    background-color: blue;
     width: 5px;
     margin: 0 2px;
 }

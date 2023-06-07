@@ -47,7 +47,7 @@ export default class Visualizer extends React.Component {
         animationIndex++;
         setTimeout(animateSort, animationSpeed);
         };
-    
+        
         animateSort();
     }
     render() {
@@ -60,7 +60,7 @@ export default class Visualizer extends React.Component {
                 </div>
                 <div className="display">
                 {array.map((item, index) => (
-                    <div className="obj" style={{height: `${item}px`}} key={index}></div>
+                    <div className="obj" style={{height: `${item}px`}} key={index}>{index}</div>
                 ))}
             </div>
             </div>
