@@ -19,7 +19,7 @@ export default function mergeSort(array, animations) {
   
     while (i < left.length && j < right.length) {
       const animation = [];
-      if (left[i] <= right[j]) {
+      if (left[i] <= right[j]) {  
         animation.push(i, j, left[i]);
         mergedArray.push(left[i]);
         i++;
@@ -28,7 +28,6 @@ export default function mergeSort(array, animations) {
         mergedArray.push(right[j]);
         j++;
       }
-  
       animations.push(animation);
     }
   
